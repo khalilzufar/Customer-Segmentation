@@ -27,6 +27,10 @@ Dengan memahami pola perilaku dan karakteristik pelanggan, proyek ini dapat memb
 - **Modeling dan Evaluasi:** 
   - Scikit-Learn (untuk klustering KMeans dan metrik evaluasi)
 
+## Results 📈
+
+K-Means clustering with PCA features produced 3 customer segments. The 3-cluster solution was selected using the Elbow Method and Silhouette analysis.
+
 ## How to Use 🛠️
 1. **Clone repositori ini:**
    ```bash
