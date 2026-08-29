@@ -1,55 +1,51 @@
-# Customer Segmentation Analysis 🛒
+# Customer Segmentation Analysis
 
-## Overview 🌟
-Proyek ini bertujuan untuk melakukan segmentasi pelanggan berdasarkan data perilaku pembelian dan demografi mereka. Analisis ini membantu bisnis memahami kelompok pelanggan yang berbeda untuk meningkatkan efektivitas pemasaran dan pengalaman pelanggan. Analisis mencakup:
+A machine-learning project that groups credit-card customers by purchasing behavior and account characteristics.
 
-- 🧑‍💻 Eksplorasi Data
-- 🧹 Pembersihan Data
-- 🔍 Feature Engineering
-- 📊 Klustering
+## Objective
 
-Dengan memahami pola perilaku dan karakteristik pelanggan, proyek ini dapat memberikan wawasan yang berguna bagi bisnis untuk mengembangkan strategi yang lebih terarah.
+Identify customer segments that can support more targeted marketing, retention, and customer-experience decisions.
 
-## Objectives 🎯
-- Mengidentifikasi segmen pelanggan berdasarkan karakteristik dan perilaku pembelian.
-- Mendukung pengembangan strategi pemasaran yang disesuaikan untuk setiap segmen.
-- Memberikan wawasan untuk meningkatkan retensi dan kepuasan pelanggan.
+## Dataset
 
-## Dependencies ⚙️
-- ![Python](https://github.com/user-attachments/assets/efbcb388-ef93-4ed9-b571-cd79647f8e59)
-- ![Jupyter Notebook](https://github.com/user-attachments/assets/34ef0fd4-6bdb-42f4-98a1-000efe2e47f1)
+The notebook uses credit_card.csv, containing 4,475 customer records and 18 behavioral or account-level features.
 
-## Libraries 📚
-- **Data Manipulasi dan Visualisasi:** 
-  - Pandas
-  - Matplotlib
-  - Seaborn
-- **Modeling dan Evaluasi:** 
-  - Scikit-Learn (untuk klustering KMeans dan metrik evaluasi)
+## Workflow
 
-## Results 📈
+1. Explore missing values, distributions, skewness, and relationships between features.
+2. Impute missing values and cap outliers.
+3. Standardize numerical features.
+4. Reduce dimensionality with PCA.
+5. Compare candidate cluster counts using the Elbow Method and Silhouette Score.
+6. Train K-Means with three clusters.
+7. Profile the resulting clusters and save the preprocessing/model artifacts.
 
-K-Means clustering with PCA features produced 3 customer segments. The 3-cluster solution was selected using the Elbow Method and Silhouette analysis.
+## Model and evaluation
 
-## How to Use 🛠️
-1. **Clone repositori ini:**
-   ```bash
-   git clone https://github.com/khalilzufar/Customer-Segmentation.git
+The final notebook uses six PCA components and KMeans with three clusters. The recorded average silhouette scores are:
 
-2. Navigasi ke Direktori Proyek: Ubah direktori Anda ke repositori yang telah dikloning:
-   ```bash
-   cd Customer-Segmentation
+| Clusters | Silhouette score |
+| ---: | ---: |
+| 2 | 0.313 |
+| 3 | 0.288 |
+| 4 | 0.261 |
 
-3. Buka Jupyter Notebook: Mulai Jupyter Notebook dengan perintah berikut:
-   ```bash
-   jupyter notebook
-   ```
-   Ini akan membuka web di browser Anda.
+Three clusters were retained for the project analysis; the scores also show why cluster selection should be validated with business context, not one metric alone.
 
-4. Jalankan Notebook: Buka file notebook yang relevan (misalnya, customer_segmentation.ipynb) dan ikuti instruksi untuk mengeksplorasi data dan menjalankan analisis.
+## Repository contents
 
+- customer_segmentation.ipynb — complete EDA, preprocessing, clustering, profiling, and inference workflow.
+- credit_card.csv — input dataset.
+- scaler.pkl, pca.pkl, kmeans.pkl — saved preprocessing and clustering artifacts.
+- list_num_col.txt — numerical feature list used by inference.
 
-## Author ✍️
-**Khalil Zufar**
+## Run locally
 
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/khalil-zufar/)
+~~~bash
+python -m pip install pandas numpy matplotlib seaborn scikit-learn feature-engine jupyter
+jupyter notebook customer_segmentation.ipynb
+~~~
+
+## Author
+
+[Khalil Zufar](https://github.com/khalilzufar)
